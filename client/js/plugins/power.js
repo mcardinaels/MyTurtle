@@ -9,13 +9,19 @@
 var Power = {
 
 	enable : function() {
-		if (typeof application == "object")
-			application.enableScreen(true);
+		if (typeof application == "object") {
+		    try {
+		        application.enableScreen(true);
+		    } catch (err) {}
+		}
 	},
 
 	disable : function() {
-		if (typeof application == "object")
-			application.enableScreen(false);
+		if (typeof application == "object") {
+		    try {
+		        application.enableScreen(false);
+            } catch (err) {}
+		}
 
 		document.location.href = '../sleep';
 	},
